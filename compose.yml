@@ -13,7 +13,7 @@
 # End of Docker Compose file for Task App.
 
 services:
-  docker-task-app:
+  task-app:
     build:
       context: .
       dockerfile: Dockerfile
