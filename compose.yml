@@ -2,18 +2,18 @@
 # This file defines the services, networks, and volumes for the Task App.
 # The Task App is built from the Dockerfile in the current directory and runs on port 80 inside the container, which is mapped to port 8080 on the host machine.
 # To use this Docker Compose file, run the following command in the terminal:
-# docker-compose -f compose.yml up -d
+# docker compose -f compose.yml up -d
 # This will build the image and start the container in detached mode. You can access the Task App at http://localhost:8080.
 # For more information on Docker Compose, visit the official documentation: https://docs.docker.com/compose/
 # Note: Make sure to have Docker and Docker Compose installed on your machine before running the above command.
-# This Docker Compose file also defines a custom network called "task-app-network" and a volume called "task-app-data" for persistent storage. The container will automatically restart unless it is explicitly stopped.
+# This Docker Compose file also defines a custom network called "docker-task-app-network" and a volume called "docker-task-app-data" for persistent storage. The container will automatically restart unless it is explicitly stopped.
 # For any issues or questions, please refer to the documentation or contact the support team.
 # Author: Mohamed Hassan
 # Date: 2026-04-16
 # End of Docker Compose file for Task App.
 
 services:
-  task-app:
+  docker-task-app:
     build:
       context: .
       dockerfile: Dockerfile
