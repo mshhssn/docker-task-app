@@ -1,25 +1,34 @@
-# Docker Compose file for Task App
-# This file defines the services, networks, and volumes for the Task App application.
+# Docker Compose file for Task App.
+# This file defines the services, networks, and volumes for the Task App.
+# The Task App is built from the Dockerfile in the current directory and runs on port 80 inside the container, which is mapped to port 8080 on the host machine.
+# To use this Docker Compose file, run the following command in the terminal:
+# docker-compose -f compose.yml up -d
+# This will build the image and start the container in detached mode. You can access the Task App at http://localhost:8080.
+# For more information on Docker Compose, visit the official documentation: https://docs.docker.com/compose/
+# Note: Make sure to have Docker and Docker Compose installed on your machine before running the above command.
+# This Docker Compose file also defines a custom network called "task-app-network" and a volume called "task-app-data" for persistent storage. The container will automatically restart unless it is explicitly stopped.
+# For any issues or questions, please refer to the documentation or contact the support team.
+# Author: Mohamed Hassan
+# Date: 2026-04-16
+# End of Docker Compose file for Task App.
 
-# Define the services that make up the Task App application.
 services:
-# Define the task-app service, which is built from the Dockerfile in the current directory.
   task-app:
-# The build section specifies the context and Dockerfile to use for building the image.
     build:
-      context: . #  Use the current directory as the build context
-      dockerfile: Dockerfile # Specify the Dockerfile to use for building the image
-    image: docker-task-app:latest # Name and tag for the built image
-    container_name: docker-task-app-ctr # Name for the container when it is run
-    ports: # Map port 80 in the container to port 8080 on the host machine
-      - "8080:80" # Expose port 80 in the container to port 8080 on the host
-    networks: # Connect the service to the task-app-network
+      context: .
+      dockerfile: Dockerfile
+    image: docker-task-app:latest
+    container_name: docker-task-app-ctr
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    networks:
       - task-app-network
-# Define the networks that the services will use.
+
 networks:
-  task-app-network: # Name of the network
-    driver: bridge # Use the default bridge network driver
-# Define the volumes that will be used by the services.
+  task-app-network:
+    driver: bridge
+
 volumes:
-  task-app-data: # Name of the volume for persistent data storage
-    driver: local # Use the default local volume driver
+  task-app-data:
+    driver: local
