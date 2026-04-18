@@ -9,7 +9,7 @@ services:
     build:
       context: . #  Use the current directory as the build context
       dockerfile: Dockerfile # Specify the Dockerfile to use for building the image
-    image: docker-tast-app:latest # Name and tag for the built image
+    image: docker-task-app:latest # Name and tag for the built image
     container_name: docker-task-app-ctr # Name for the container when it is run
     ports: # Map port 80 in the container to port 8080 on the host machine
       - "8080:80" # Expose port 80 in the container to port 8080 on the host
