@@ -55,13 +55,13 @@ This repository continues the project beyond the earlier lab-specific stage and 
    ```bash
    docker ps
    ```
-5. Test it by sending a request to the app:
+4. Test it by sending a request to the app:
 
    ```bash
    curl http://localhost:8080
    ```
-6. Access the app in your browser at `http://localhost:8080`.
-7. Stop and remove the container when done:
+5. Access the app in your browser at `http://localhost:8080`.
+6. Stop and remove the container when done:
 
    ```bash
    docker stop docker-task-app
@@ -75,8 +75,8 @@ The repository includes two GitHub Actions workflows:
 
 ## CI/CD
 The GitHub Actions workflow builds, tests, and publishes the image to Docker Hub.
-- On push to `main`, it builds the image and pushes it with the `latest` tag.
-- On Git tag creation, it builds the image and pushes it with the tag name (e.g., `v1.0.0`).
+- On push to `main`, it builds the image and publishes `latest` and `sha-*`.
+- On Git tags such as v1.0.0, it publishes a versioned Docker image tag such as 1.0.0.
 
 ## Docker Hub Repository
 The Docker image is published to Docker Hub under the repository `mshhssn/docker-task-app`. You can pull the image using:
@@ -88,11 +88,11 @@ docker pull mshhssn/docker-task-app:latest
 or for a specific version:
 
 ```bash
-docker pull mshhssn/docker-task-app:v1.0.0
+docker pull mshhssn/docker-task-app:1.0.0
 ```
 
 ## Notes
-- GitHub stores how them image is built, validated and published in the `docker-publish.yml` workflow file. You can customize it further as needed.
+- GitHub stores how the image is built, validated and published in the `docker-publish.yml` workflow file. You can customize it further as needed.
 - Docker Hub stores the published images and provides versioning through tags.
 - You can manage your images and tags through the Docker Hub web interface.
-- This Repositpry is the continued wirking project based on the earlier lab state.
+- This Repository is the continued working project based on the earlier lab state.
