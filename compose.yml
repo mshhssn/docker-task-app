@@ -1,0 +1,25 @@
+# Docker Compose file for Task App
+# This file defines the services, networks, and volumes for the Task App application.
+
+# Define the services that make up the Task App application.
+services:
+# Define the task-app service, which is built from the Dockerfile in the current directory.
+  task-app:
+# The build section specifies the context and Dockerfile to use for building the image.
+    build:
+      context: . #  Use the current directory as the build context
+      dockerfile: Dockerfile # Specify the Dockerfile to use for building the image
+    image: docker-tast-app:latest # Name and tag for the built image
+    container_name: docker-task-app-ctr # Name for the container when it is run
+    ports: # Map port 80 in the container to port 8080 on the host machine
+      - "8080:80" # Expose port 80 in the container to port 8080 on the host
+    networks: # Connect the service to the task-app-network
+      - task-app-network
+# Define the networks that the services will use.
+networks:
+  task-app-network: # Name of the network
+    driver: bridge # Use the default bridge network driver
+# Define the volumes that will be used by the services.
+volumes:
+  task-app-data: # Name of the volume for persistent data storage
+    driver: local # Use the default local volume driver
