@@ -15,9 +15,9 @@ env:
     DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
     DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 
-# Die Image-Namen für das Haupt-Image und das Test-Image werden als Umgebungsvariablen definiert. Das Haupt-Image wird unter "mshhssn/lab-d3-task-app-dh" veröffentlicht, während das Test-Image mit einem zusätzlichen Tag "test-ci" versehen wird.
-    IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/lab-d3-task-app-dh
-    TEST_IMAGE_NAME: lab-d3-task-app-dh:test-ci
+# Die Image-Namen für das Haupt-Image und das Test-Image werden als Umgebungsvariablen definiert. Das Haupt-Image wird unter "mshhssn/docker-task-app" veröffentlicht, während das Test-Image mit einem zusätzlichen Tag "test-ci" versehen wird.
+    IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/docker-task-app
+    TEST_IMAGE_NAME: ${{ secrets.DOCKERHUB_USERNAME }}/docker-task-app:test-ci
 
 
 # Der Workflow besteht aus einem Job namens "docker". Dieser Job läuft auf einem Ubuntu-Latest-Runner. Die Berechtigungen für den Job sind so eingestellt, dass er nur Lesezugriff auf die Repository-Inhalte hat.
