@@ -26,7 +26,7 @@ services:
     # - ./app:/usr/share/nginx/html:ro
       - ${APP_SOURCE_PATH}:${APP_TARGET_PATH}:ro
     # - task-app-data:/var/lib/task-app-data
-      - ${APP_DATA_VOLUME}:${APP_DATA_TARGET_PATH}:ro
+      - ${APP_DATA_VOLUME}:${APP_DATA_TARGET_PATH}:rw
     networks:
       - ${NETWORK_NAME}
 
