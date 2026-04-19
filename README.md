@@ -78,17 +78,17 @@ The Repository now uses Docker Compose for easier multi-container management as 
 1. You can start the app with:
 
    ```bash
-   docker-compose -f compose.yml up -d --build
+   docker compose -f compose.yml up -d --build
    ```
 2. Verify the container is running:
 
    ```bash
-   docker-compose -f compose.yml ps
+   docker compose -f compose.yml ps
    ```
 3. Access the app in your browser at `http://localhost:8080`.
 4. View logs with:
    ```bash
-   docker-compose -f compose.yml logs -f
+   docker compose -f compose.yml logs -f
    ```
    or
    ```bash
@@ -96,27 +96,27 @@ The Repository now uses Docker Compose for easier multi-container management as 
    ```
    For a specific service use:
    ```bash
-   docker-compose -f compose.yml logs -f docker-task-app
+   docker compose -f compose.yml logs -f docker-task-app
    ```
 5. Stop the services when done:
    ```bash
-   docker-compose -f compose.yml stop
+   docker compose -f compose.yml stop
    ```
 6. Start the services again without rebuilding:
    ```bash
-   docker-compose -f compose.yml start
+   docker compose -f compose.yml start
    ```
 7. To rebuild and restart the services:
    ```bash
-   docker-compose -f compose.yml up -d --build
+   docker compose -f compose.yml up -d --build
    ```
 8. To remove the container, services and associated resources:
    ```bash
-   docker-compose -f compose.yml down
+   docker compose -f compose.yml down
    ```
 9. To remove the container, services and associated resources including volumes:
    ```bash
-   docker-compose -f compose.yml down -v
+   docker compose -f compose.yml down -v
    ```
 
 ## Configuration and Environment Variables '.env' file
