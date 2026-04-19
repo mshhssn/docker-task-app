@@ -26,7 +26,7 @@ services:
     networks:
       - ${NETWORK_NAME}
 
-  reverse-proxy:
+  web-server:
     image: nginx:alpine
     container_name: ${REVERSE_PROXY_CONTAINER_NAME}
     restart: unless-stopped
